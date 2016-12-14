@@ -27,4 +27,12 @@ router
   .put('/posts/:id', posts.update)
   .delete('/posts/:id', posts.destroy);
 
+// USER NESTED ROUTES
+  router
+    .get('/users/:id/posts/new', posts.newUser)
+    .post('/users/:id/posts', posts.createUser);
+
+
+
+
 module.exports = router;

@@ -1,4 +1,5 @@
 var Post = require('../models/Post');
+var User = require('../models/User');
 
 exports.index = function(req, res, next) {
   Post
@@ -44,4 +45,29 @@ exports.destroy = function(req, res, next) {
     .then(function(){
       res.send('deleted');
     }, next)
+};
+
+// Non API user nested routes for associations
+exports.newUser = function(req, res, next) {
+  User
+    .query()
+    .findById(req.params.id)
+    .then(function(user){
+      res.render('posts/new', user);
+    }, next)
+};
+
+exports.createUser = function(req, res, next) {
+  var user_id = req.params.id;
+  User
+    .query()
+    .findById(user_id)
+    .then(function(user){
+      return user
+        .$relatedQuery('posts')
+        .insert(req.body);
+    })
+    .then(function(post){
+      res.redirect(`/users/${user_id}`);
+    }, next);
 };

@@ -1,1 +1,12 @@
+<h3>New post for {{name}}</h3>
+<fieldset>
+  <legend>New post form</legend>
 
+  <form action="/users/{{id}}/posts" method="post">
+    <p>Description</p>
+    <textarea name="description"></textarea>
+    <p><input type="submit"></p>
+
+  </form>
+
+</fieldset>
