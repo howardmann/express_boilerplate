@@ -20,13 +20,28 @@ exports.show = function(req, res, next) {
 };
 
 exports.create = function(req, res, next) {
-  res.send('create');
+  Post
+    .query()
+    .insertAndFetch(req.body)
+    .then(function(post){
+      res.json(post);
+    }, next)
 };
 
 exports.update = function(req, res, next) {
-  res.send('update');
+  Post
+    .query()
+    .updateAndFetchById(req.params.id, req.body)
+    .then(function(post){
+      res.json(post);
+    }, next)
 };
 
 exports.destroy = function(req, res, next) {
-  res.send('destroy');
+  Post
+    .query()
+    .deleteById(req.params.id)
+    .then(function(){
+      res.send('deleted');
+    }, next)
 };

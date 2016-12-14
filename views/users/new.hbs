@@ -1,1 +1,19 @@
-<p>New page</p>
+<h3>Create new User</h3>
+
+<fieldset>
+  <legend>New User Form</legend>
+  <form action="/users" method="post">
+    <p>Email</p>
+    <input type="email" name="email" required=true>
+
+    <p>Name</p>
+    <input type="text" name="name" required=true>
+
+    <p>Age</p>
+    <input type="number" name="age">
+
+    <p><input type="submit"></p>
+  </form>
+</fieldset>
+
+<a href="/users">Back to users</a>

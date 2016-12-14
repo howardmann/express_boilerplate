@@ -8,13 +8,16 @@
 html, body {
   font-family: 'arial';
   font-size: 16px;
-  line-height: 1.625;
+  line-height: 1.65;
+}
+body {
+  margin: 0px;
+}
+a {
+  text-decoration: none;
 }
 
 /* TYPOGRAPHY */
-h1, h2, h3 {
-  font-family: 'palatino';
-}
 h1 {
   font-size: 3.0rem;
 }
@@ -39,6 +42,14 @@ ul ul {
   padding-left: 18px;
 }
 
+/* HEADER */
+header {
+  background-color: gainsboro;
+  .logo {
+    font-size: 30px;
+  }
+}
+
 /* GRID SYSTEM */
 
 .row:after {
@@ -52,11 +63,7 @@ ul ul {
 }
 .col {
   float: left;
-  /*min-height: 100px;*/
-  padding: 3px;
   position: relative;
-  background-color: gainsboro;
-  border: 0.5px solid white;
 }
 .col-12 {
   width: 100%;

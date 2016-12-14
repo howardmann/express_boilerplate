@@ -1,4 +1,5 @@
 var express = require('express');
+var methodOverride = require('method-override');
 var sassMiddleware = require('node-sass-middleware');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -32,6 +33,16 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+// ===BP: ADD METHOD OVERRIDE TO ALLOW FORMS TO SUBMIT DELETE AND PUT REQUESTS
+app.use(methodOverride(function (req, res) {
+  if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+    // look in urlencoded POST bodies and delete it
+    var method = req.body._method
+    delete req.body._method
+    return method
+  }
+}));
 
 // ===BP: NODE-SASS-MIDDLEWARE
 app.use(sassMiddleware({

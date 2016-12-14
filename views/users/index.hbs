@@ -5,6 +5,14 @@
   <p>Email: {{email}}</p>
   <p>Age: {{age}}</p>
   <p>Posts: {{posts.length}}</p>
-  <a href="/users/{{id}}">Show page</a>
+  <div class="controls">
+    <a href="/users/{{id}}">Show</a> |
+    <a href="/users/{{id}}/edit">Edit</a>
+    <form method="POST" action="/users/{{id}}">
+      <input type="hidden" name="_method" value="DELETE">
+      <button type="submit">Delete</button>
+    </form>
+  </div>
+
   <hr>
 {{/each}}

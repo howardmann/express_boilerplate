@@ -2,13 +2,27 @@
 <html>
   <head>
     <title>Express-Boilerplate</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
     <header>
-      <h1>Express-Boilerplate</h1>
+      <div class="container">
+      <span class="logo">Express-Boilerplate</span>
+      <nav>
+        <a href="/">Home</a> |
+        <a href="/users">All Users</a> |
+        <a href="/users/new">New User</a> |
+        <a href="/posts">Posts api</a>
+      </nav>
+      </div>
     </header>
 
-    {{{body}}}
+    <div class="container">
+
+      {{{body}}}
+
+    </div>
+
   </body>
 </html>
