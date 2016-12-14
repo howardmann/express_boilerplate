@@ -27,6 +27,22 @@ Boilerplate app comes with a User and Post model (with a has many and belongs to
 6. Create your own database tables by rolling back knex migrations ```knex migrate:rollback``` then creating new migration ```knex migrate:make newtables```, configure knex table (see migraiton folder for exmaples or visit knex website), then migrate ```knex migrate:latest```
 7. Change relevant seed files, models, routes and controllers (within routes folder)
 
+## Deploy to Heorku
+Terminal commands
+```
+heroku create name_of_your_unique_app
+git push heroku master
+heroku addons:create heroku-postgresql:hobby-dev
+heroku open
+```
+
+To find out the postgresql database details run the following terminal command which will output the dbname, host, user and password. Then in you can connect to your psql database with your favourite GUI, I prefer Postico
+```
+heroku pg:credentials DATABASE
+=>
+Connection info string:
+   "dbname=[xxx] host=[xxx].compute-1.amazonaws.com port=5432 user=[xxx] password=[xxx] sslmode=require"
+```
 
 ##Author and License
 Howie_Burger
