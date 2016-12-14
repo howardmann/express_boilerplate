@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node server",
-    "dev": "nodemon server"
+    "dev": "nodemon server",
+    "bootstrap": "knex migrate:latest && knex seed:run"
+
   },
   "dependencies": {
     "body-parser": "~1.15.2",
