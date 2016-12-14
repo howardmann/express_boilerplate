@@ -1,15 +1,14 @@
 
-
 exports.index = function(req, res, next) {
-  res.render('users/index');
+  res.send('index');
 };
 
 exports.show = function(req, res, next) {
-  res.render('users/show');
+  res.send('show');
 };
 
 exports.new = function(req, res, next) {
-  res.render('users/new');
+  res.send('new');
 };
 
 exports.create = function(req, res, next) {
@@ -17,7 +16,7 @@ exports.create = function(req, res, next) {
 };
 
 exports.edit = function(req, res, next) {
-  res.render('users/edit');
+  res.send('edit');
 };
 
 exports.update = function(req, res, next) {
