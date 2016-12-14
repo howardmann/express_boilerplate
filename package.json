@@ -12,8 +12,11 @@
     "debug": "~2.2.0",
     "express": "~4.14.0",
     "express-handlebars": "^3.0.0",
+    "knex": "^0.12.6",
     "morgan": "~1.7.0",
     "node-sass-middleware": "0.9.8",
+    "objection": "^0.6.2",
+    "pg": "^6.1.2",
     "serve-favicon": "~2.3.0"
   }
 }
