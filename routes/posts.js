@@ -1,22 +1,26 @@
+var Post = require('../models/Post');
 
 exports.index = function(req, res, next) {
-  res.send('index');
+  Post
+    .query()
+    .eager('user')
+    .then(function(posts){
+      res.json(posts);
+    }, next)
 };
 
 exports.show = function(req, res, next) {
-  res.send('show');
-};
-
-exports.new = function(req, res, next) {
-  res.send('new');
+  Post
+    .query()
+    .findById(req.params.id)
+    .eager('user')
+    .then(function(post){
+      res.json(post);
+    }, next)
 };
 
 exports.create = function(req, res, next) {
   res.send('create');
-};
-
-exports.edit = function(req, res, next) {
-  res.send('edit');
 };
 
 exports.update = function(req, res, next) {

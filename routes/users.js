@@ -1,11 +1,24 @@
-
+var User = require('../models/User');
 
 exports.index = function(req, res, next) {
-  res.render('users/index');
+  User
+    .query()
+    .eager('posts')
+    .then(function(data){
+      res.render('users/index', {
+        users: data
+      });
+    }, next);
 };
 
 exports.show = function(req, res, next) {
-  res.render('users/show');
+  User
+    .query()
+    .findById(req.params.id)
+    .eager('posts')
+    .then(function(data){
+      res.render('users/show', data);
+    }, next);
 };
 
 exports.new = function(req, res, next) {

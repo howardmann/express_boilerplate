@@ -1,1 +1,10 @@
-<p>Index page</p>
+<h3>Users Index page</h3>
+
+{{#each users}}
+  <p>Name: {{name}}</p>
+  <p>Email: {{email}}</p>
+  <p>Age: {{age}}</p>
+  <p>Posts: {{posts.length}}</p>
+  <a href="/users/{{id}}">Show page</a>
+  <hr>
+{{/each}}

@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express-Boilerplate' });
 });
 
-// USERS CRUD
+// USERS CRUD SERVER-SIDE FORMAT
 router
   .get('/users', users.index)
   .get('/users/new', users.new)
@@ -19,16 +19,12 @@ router
   .put('/users/:id', users.update)
   .delete('/users/:id', users.destroy);
 
-// POSTS CRUD
+// POSTS CRUD API FORMAT
 router
   .get('/posts', posts.index)
-  .get('/posts/new', posts.new)
   .post('/posts', posts.create)
   .get('/posts/:id', posts.show)
-  .get('/posts/:id/edit', posts.edit)
   .put('/posts/:id', posts.update)
   .delete('/posts/:id', posts.destroy);
-
-
 
 module.exports = router;
