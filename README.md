@@ -19,7 +19,7 @@ Boilerplate app comes with a User and Post model (with a has many and belongs to
 - Method-override for html put and delete requests
 
 ## Installation instructions
-1. Git clone the repo ```git clone [url]``` and remove origin ```git remove origin```
+1. Git clone the repo ```git clone [url]``` and remove origin ```git remote remove origin```
 2. npm install the packages ```npm install```
 3. Configure development database. If using postgresql create a new psql database in terminal and change reference (see knexfile.js for instructions)
 4. Run knex database migrations ```npm run bootstrap```
