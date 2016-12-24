@@ -1,7 +1,7 @@
 var Model = require('objection').Model;
 var Post = require('./Post');
 
-// Extends Model constructor to User.
+// Extends Model constructor.
 function User() {
   Model.apply(this, arguments);
 }
@@ -24,5 +24,16 @@ User.relationMappings = {
       from: 'users.id',
       to: 'posts.user_id'
     }
-  },
+  }
+};
+
+// Model logic is created via virtual attributes using the prototype property and then referencing it as a an array of virtualAttributes
+User.virtualAttributes = ['underage'];
+
+User.prototype.underage = function(){
+  if (this.age <= 18) {
+    return true;
+  } else {
+    return false;
+  }
 };

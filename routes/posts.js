@@ -24,6 +24,7 @@ exports.create = function(req, res, next) {
   Post
     .query()
     .insertAndFetch(req.body)
+    .eager('user')
     .then(function(post){
       res.json(post);
     }, next)
@@ -33,6 +34,7 @@ exports.update = function(req, res, next) {
   Post
     .query()
     .updateAndFetchById(req.params.id, req.body)
+    .eager('user')
     .then(function(post){
       res.json(post);
     }, next)
@@ -41,9 +43,14 @@ exports.update = function(req, res, next) {
 exports.destroy = function(req, res, next) {
   Post
     .query()
-    .deleteById(req.params.id)
-    .then(function(){
-      res.send('deleted');
+    .findById(req.params.id)
+    .then(function(post){
+      Post
+      .query()
+      .deleteById(req.params.id)
+      .then(function(){
+        res.json(post);
+      });
     }, next)
 };
 

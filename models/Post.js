@@ -14,6 +14,7 @@ Post.tableName = 'posts';
 Post.relationMappings = {
   user: {
     relation: Model.BelongsToOneRelation,
+    // We use __dirname to avoid require loops
     modelClass: __dirname + '/User',
     join: {
       from: 'posts.user_id',
@@ -21,3 +22,6 @@ Post.relationMappings = {
     }
   }
 };
+
+
+// Custom methods
