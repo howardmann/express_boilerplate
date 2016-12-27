@@ -22,6 +22,3 @@ Post.relationMappings = {
     }
   }
 };
-
-
-// Custom methods
