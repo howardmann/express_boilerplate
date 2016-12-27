@@ -52,7 +52,7 @@ app.use(sassMiddleware({
 app.use(express.static(path.join(__dirname, 'public')));
 
 // ===BP: REQUIRE ROUTES
-app.use(require('./routes'));
+app.use(require('./routes/index.js'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

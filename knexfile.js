@@ -15,11 +15,23 @@ module.exports = {
       user: "howardmann",
       password: '',
       database: "express_boilerplate"
+    },
+    migrations: {
+      directory: __dirname + '/db/migrations'
+    },
+    seeds: {
+      directory: __dirname + '/db/seeds'
     }
-  }
-  ,
+  },
+
   production: {
     client: "pg",
-    connection: process.env.DATABASE_URL
+    connection: process.env.DATABASE_URL,
+    migrations: {
+      directory: __dirname + '/db/migrations'
+    },
+    seeds: {
+      directory: __dirname + '/db/seeds'
+    }        
   }
 }

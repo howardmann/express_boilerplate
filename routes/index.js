@@ -1,8 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-var users = require('./users.js');
-var posts = require('./posts.js');
+// Require controllers
+var users = require('../controllers/users.js');
+var posts = require('../controllers/posts.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
