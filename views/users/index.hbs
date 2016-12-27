@@ -1,19 +1,23 @@
 <h3>Users Index page</h3>
 
 {{#each users}}
-  <p>Name: {{name}}</p>
-  <p>Email: {{email}}</p>
-  <p>Age: {{age}}</p>
-  <p>Underage: {{underage}}</p>
-  <p>Posts: {{posts.length}}</p>
-  <div class="controls">
-    <a href="/users/{{id}}">Show</a> |
-    <a href="/users/{{id}}/edit">Edit</a>
-    <form method="POST" action="/users/{{id}}">
-      <input type="hidden" name="_method" value="DELETE">
-      <button type="submit">Delete</button>
-    </form>
-  </div>
+  <div class="user">
+    <p>Name: {{name}}</p>
+    <p>Email: {{email}}</p>
+    <p>Age: {{age}}</p>
+    <p>Underage: {{underage}}</p>
+    <p>Posts: {{posts.length}}</p>
+    <p>user_id: {{id}}</p>
 
-  <hr>
+    <div class="controls">
+      <a class="show-user" href="/users/{{id}}">Show</a> |
+      <a class="edit-user" href="/users/{{id}}/edit">Edit</a>
+      <form method="POST" action="/users/{{id}}">
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit">Delete</button>
+      </form>
+    </div>
+
+    <hr>
+  </div>
 {{/each}}

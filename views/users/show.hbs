@@ -3,14 +3,17 @@
 <p>Name: {{name}}</p>
 <p>Email: {{email}}</p>
 <p>Age: {{age}}</p>
-<p>Posts:</p>
+<div class="user-posts">
+  <p>Posts:</p>
+  <ul>
+    {{#each posts}}
+      <li>{{description}}</li>
+    {{/each}}
+  </ul>
+</div>
 
-<ul>
-  {{#each posts}}
-    <li>{{description}}</li>
-  {{/each}}
-</ul>
-
-<a href="/users/{{id}}/posts/new">Add new post</a>
-<br>
-<a href="/users">Back to users index</a>
+<div class="controls">
+  <a class="new-post" href="/users/{{id}}/posts/new">Add new post</a>
+  <br>
+  <a href="/users">Back to users index</a>
+</div>
